@@ -5,6 +5,12 @@
       <!-- <div class="navbar-start"> -->
       <!-- <div class="columns"> -->
 
+      {{ range $.Site.Home.AllTranslations.ByWeight }}
+        {{ if ne .Language.LanguageName $.Language.LanguageName }}
+          <a class="navbar-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+        {{ end }}
+      {{ end }}
+
       <div class="navbar-item is-expanded"></div>
       <a class="navbar-item is-hidden-desktop">  
         <div data-target="navbar-menu" class="navbar-item right-menu-icon-wrapper is-hidden-desktop">
